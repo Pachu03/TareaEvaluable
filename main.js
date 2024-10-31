@@ -2,7 +2,7 @@ import "./style.css";
 
 const body = document.body;
 
-let iniciarPrograma = () => {
+let createElements = () => {
   let divContainer = document.createElement("div");
   divContainer.className = "container";
 
@@ -61,7 +61,7 @@ let iniciarPrograma = () => {
       createTask(inputText.value);
       inputText.value = "";
     } else {
-      console.log("Rellena una tarea");
+      alert("Debes rellenr una tarea");
     }
   });
 };
@@ -75,7 +75,6 @@ let createTask = (taskText) => {
 
   let span = document.createElement("span");
   span.textContent = taskText;
-  span.style.cursor = "pointer";
 
   span.addEventListener("click", () => {
     span.style.textDecoration =
@@ -91,16 +90,16 @@ let createTask = (taskText) => {
 
   inpBtn.addEventListener("click", () => {
     li.remove();
-    updateTaskCount();
+    updateTask();
   });
 
   li.append(p, inpBtn);
   ul.append(li);
 
-  updateTaskCount();
+  updateTask();
 };
 
-let updateTaskCount = () => {
+let updateTask = () => {
   let count = document.querySelectorAll(".li-container ul li").length;
   document.querySelector(".task-count span:last-child").textContent = count;
 
@@ -108,4 +107,4 @@ let updateTaskCount = () => {
   emptyMessage.style.display = count === 0 ? "block" : "none";
 };
 
-document.addEventListener("DOMContentLoaded", iniciarPrograma);
+document.addEventListener("DOMContentLoaded", createElements);
