@@ -55,6 +55,7 @@ let createElements = () => {
   divContainer.append(h1, divForm, divUl, divP, divSpan);
   body.append(divContainer);
 
+  
   inputBtn.addEventListener("click", (event) => {
     event.preventDefault();
     if (inputText.value.trim() !== "") {
@@ -103,8 +104,8 @@ let updateTask = () => {
   let count = document.querySelectorAll(".li-container ul li").length;
   document.querySelector(".task-count span:last-child").textContent = count;
 
-  let emptyMessage = document.querySelector(".empty p");
-  emptyMessage.style.display = count === 0 ? "block" : "none";
+  let emptyP = document.querySelector(".empty p");
+  emptyP.textContent = count === 0 ? "You have no pending tasks." : "";
 };
 
 document.addEventListener("DOMContentLoaded", createElements);
