@@ -61,8 +61,6 @@ let createElements = () => {
     if (inputText.value.trim() !== "") {
       createTask(inputText.value);
       inputText.value = "";
-    } else {
-      alert("Debes rellenr una tarea");
     }
   });
 };
